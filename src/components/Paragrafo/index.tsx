@@ -1,12 +1,16 @@
-import { P } from './styles'
+import { P as StyledP } from './styles'
 
 export type Props = {
-  children: string
+  children: React.ReactNode
   tipo?: 'principal' | 'secundario'
+  fontSize?: number
+  a?: string
 }
 
-const Paragrafo = ({ children, tipo = 'principal' }: Props) => (
-  <P tipo={tipo}>{children}</P>
+const P = ({ children, tipo = 'principal', fontSize, a }: Props) => (
+  <StyledP fontSize={fontSize} tipo={tipo}>
+    {a ? <a href={a}>{children}</a> : children}
+  </StyledP>
 )
 
-export default Paragrafo
+export default P
